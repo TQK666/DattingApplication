@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Datting</string>
+    <string name="title_data">data</string>
+    <string name="its_a">It\'s a</string>
+    <string name="match">match!</string>
+    <string name="no_more_profiles">There\'s no one new around you!</string>
+    <string name="retry">Retry</string>
+    <string name="send">Send</string>
+
+
+</resources>
