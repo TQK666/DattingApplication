@@ -21,7 +21,6 @@ class HomeViewModel(
     private val getProfilesUseCase: GetProfilesUseCase,
     private val likeProfileUseCase: LikeProfileUseCase,
     private val passProfileUseCase: PassProfileUseCase,
-    private val sendMessageUseCase: SendMessageUseCase,
     private val getPictureUseCase: GetPictureUseCase
 ) : ViewModel() {
     private val _uiState =
@@ -37,11 +36,6 @@ class HomeViewModel(
             it.copy(dialogState = HomeViewDialogState.NoDialog)
         }
     }
-
-    fun sendMessage(matchId: String, text: String) = viewModelScope.launch {
-        sendMessageUseCase(matchId, text)
-    }
-
 
     fun swipeUser(profileState: ProfileState, isLike: Boolean) = viewModelScope.launch {
         if (isLike) {

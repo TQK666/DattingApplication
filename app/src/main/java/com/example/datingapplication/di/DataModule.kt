@@ -11,10 +11,10 @@ import com.example.data.repository.picture.PictureRemoteDataSource
 import com.example.data.repository.picture.PictureRepositoryImpl
 import com.example.data.repository.profile.ProfileRemoteDataSource
 import com.example.data.repository.profile.ProfileRepositoryImpl
-import com.example.data.source.MatchRemoteDataSourceMockImpl
-import com.example.data.source.MessageRemoteDataSourceMockImpl
-import com.example.data.source.PictureRemoteDataSourceMockImpl
-import com.example.data.source.ProfileRemoteDataSourceMockImpl
+import com.example.data.source.MatchDataSourceImpl
+import com.example.data.source.MessageDataSourceImpl
+import com.example.data.source.PictureDataSourceImpl
+import com.example.data.source.ProfileDataSourceImpl
 import com.example.domain.match.MatchRepository
 import org.koin.dsl.module
 
@@ -26,10 +26,10 @@ val repositoryModule = module {
 }
 
 val sourceModule = module {
-    single<PictureRemoteDataSource> { PictureRemoteDataSourceMockImpl(get()) }
-    single<ProfileRemoteDataSource> { ProfileRemoteDataSourceMockImpl() }
-    single<MessageRemoteDataSource> { MessageRemoteDataSourceMockImpl() }
-    single<MatchRemoteDataSource> { MatchRemoteDataSourceMockImpl() }
+    single<PictureRemoteDataSource> { PictureDataSourceImpl(get()) }
+    single<ProfileRemoteDataSource> { ProfileDataSourceImpl() }
+    single<MessageRemoteDataSource> { MessageDataSourceImpl() }
+    single<MatchRemoteDataSource> { MatchDataSourceImpl() }
 }
 
 val dataModule = module {

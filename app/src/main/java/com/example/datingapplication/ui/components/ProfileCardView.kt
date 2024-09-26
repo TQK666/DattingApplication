@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,7 +23,7 @@ import com.example.datingapplication.model.ProfilePictureState
 
 @Composable
 fun ProfileCardView(profile: Profile, pictures: List<ProfilePictureState>, modifier: Modifier = Modifier, contentModifier: Modifier = Modifier){
-    var currentIndex by remember{ mutableStateOf(0) }
+    var currentIndex by remember{ mutableIntStateOf(0) }
 
     val gradient = Brush.verticalGradient(
         colorStops = arrayOf(
@@ -78,17 +75,15 @@ fun ProfileCardView(profile: Profile, pictures: List<ProfilePictureState>, modif
                     }
                 }
                 //Clickable
-                Row(Modifier.fillMaxSize()) {
-                    Box(modifier = Modifier
-                        .fillMaxHeight()
-                        .weight(1f)
-                        .clickable { if (currentIndex > 0) currentIndex-- })
-                    Box(modifier = Modifier
-                        .fillMaxHeight()
-                        .weight(1f)
-                        .clickable { if (currentIndex < pictures.size - 1) currentIndex++ }
-                    )
-                }
+                Row(Modifier.fillMaxSize()
+                    .clickable {
+                        if (currentIndex < pictures.size - 1) {
+                            currentIndex++
+                        } else {
+                            currentIndex = 0
+                        }
+                    }){}
+
                 //Information
                 Row(
                     modifier = Modifier
@@ -101,11 +96,6 @@ fun ProfileCardView(profile: Profile, pictures: List<ProfilePictureState>, modif
                     Spacer(Modifier.width(8.dp))
                     Text(text = profile.age.toString(), color = Color.White, fontSize = 28.sp)
                     Spacer(modifier = Modifier.weight(1f))
-                    Icon(
-                        modifier = Modifier.size(28.dp),
-                        imageVector = Icons.Default.Info,
-                        tint = Color.White,
-                        contentDescription = null)
                 }
 
             }

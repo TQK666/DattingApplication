@@ -15,6 +15,5 @@ fun HomeScreen() {
         fetchProfiles = homeViewModel::fetchProfiles,
         swipeUser = homeViewModel::swipeUser,
         onCloseDialog = homeViewModel::closeDialog,
-        onSendMessage = homeViewModel::sendMessage,
     )
 }

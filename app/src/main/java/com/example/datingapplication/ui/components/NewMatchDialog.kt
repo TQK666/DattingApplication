@@ -9,9 +9,8 @@ import com.example.datingapplication.ui.home.NewMatchView
 @Composable
 fun NewMatchDialog(
     pictureStates: List<ProfilePictureState>,
-    onSendMessage: (String) -> Unit,
     onCloseClicked: () -> Unit) {
     Dialog(onDismissRequest = onCloseClicked, properties = DialogProperties(usePlatformDefaultWidth = false)) {
-        NewMatchView(pictureStates, onSendMessage, onCloseClicked)
+        NewMatchView(pictureStates, onCloseClicked)
     }
 }

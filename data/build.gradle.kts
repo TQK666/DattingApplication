@@ -35,17 +35,12 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
     implementation(platform(libs.kotlin.bom))
+    implementation(libs.kotlinx.coroutines.core)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    implementation(libs.kotlinx.coroutines.core)
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     implementation(project(":domain"))
 }

@@ -46,12 +46,6 @@ enum class AnimationType(
             )
         },
     ),
-    FADE(
-        enterTransition = { fadeIn(tween(FADE_TRANSITION_DURATION)) },
-        exitTransition = { fadeOut(tween(FADE_TRANSITION_DURATION)) },
-        popEnterTransition = { fadeIn(tween(FADE_TRANSITION_DURATION)) },
-        popExitTransition = { fadeOut(tween(FADE_TRANSITION_DURATION)) },
-    ),
     HOME(
         enterTransition = {
             slideIntoContainer(

@@ -40,13 +40,12 @@ import com.example.datingapplication.ui.theme.Green1
 @Composable
 fun NewMatchView(
     pictureStates: List<ProfilePictureState>,
-    onSendMessage: (String) -> Unit,
     onCloseClicked: () -> Unit
 ) {
     val interactionSource = remember { MutableInteractionSource() }
 
     Box {
-        var currentIndex by remember { mutableStateOf(0) }
+        var currentIndex by remember { mutableIntStateOf(0) }
         var isTextVisible by remember { mutableStateOf(false) }
         var isFirstTime by remember { mutableStateOf(true) }
 
@@ -174,13 +173,6 @@ fun NewMatchView(
                     contentDescription = null
                 )
             }
-
-            ChatFooter(
-                modifier = Modifier.align(Alignment.BottomCenter),
-                onSendClicked = onSendMessage,
-                shape = RoundedCornerShape(6.dp)
-            )
-
         }
     }
 }

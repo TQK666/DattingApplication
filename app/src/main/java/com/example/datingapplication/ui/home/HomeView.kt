@@ -41,13 +41,13 @@ fun HomeView(
     removeLastProfile: () -> Unit,
     fetchProfiles: () -> Unit,
     swipeUser: (ProfileState, Boolean) -> Unit,
-    onSendMessage: (String, String) -> Unit,
-    onCloseDialog: () -> Unit) {
+    onCloseDialog: () -> Unit)
+{
     val scope = rememberCoroutineScope()
 
     when(uiState.dialogState) {
         is HomeViewDialogState.NewMatchDialog -> {
-            NewMatchDialog(pictureStates = uiState.dialogState.pictureStates, onSendMessage = { onSendMessage(uiState.dialogState.match.id, it) }, onCloseClicked = onCloseDialog)
+            NewMatchDialog(pictureStates = uiState.dialogState.pictureStates, onCloseClicked = onCloseDialog)
         }
         else -> {}
     }
@@ -185,7 +185,6 @@ fun HomeViewPreview() {
 
             },
             onCloseDialog = {},
-            onSendMessage = { _, _ ->}
         )
     }
 }

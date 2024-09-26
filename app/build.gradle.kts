@@ -27,6 +27,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -53,18 +54,15 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.material)
+    implementation(libs.androidx.icon.material)
 
     implementation(libs.androidx.navigation.compose)
 
     implementation(libs.coil)
     implementation(libs.coil.compose)
-
-    implementation(libs.datetime)
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
@@ -77,6 +75,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.ui.test.junit4)
 
+    implementation(libs.androidx.ui.tooling.preview)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
